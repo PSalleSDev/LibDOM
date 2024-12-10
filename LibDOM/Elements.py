@@ -14,7 +14,7 @@ class Element:
                 
             self.args = args
             self.kwargs = kwargs
-            self.tag_name = re.sub(r'([a-z])([A-Z])', r'\1-\2', self.__class__.__name__.lower()).lower()
+            self.tag_name = re.sub(r'([a-z])([A-Z])', r'\1-\2', self.__class__.__name__).lower()
             
         def __str__(self):
             return self._render()
@@ -34,7 +34,7 @@ class Element:
                 
             self.args = args
             self.kwargs = kwargs
-            self.tag_name = re.sub(r'([a-z])([A-Z])', r'\1-\2', self.__class__.__name__.lower()).lower()
+            self.tag_name = re.sub(r'([a-z])([A-Z])', r'\1-\2', self.__class__.__name__).lower()
             
         def __str__(self):
             return self._render()
