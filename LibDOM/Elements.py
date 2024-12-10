@@ -1,3 +1,4 @@
+import re
 import inspect
 import textwrap
 from .Attributes import GlobalAttributes
@@ -13,7 +14,7 @@ class Element:
                 
             self.args = args
             self.kwargs = kwargs
-            self.tag_name = self.__class__.__name__.lower()
+            self.tag_name = re.sub(r'([a-z])([A-Z])', r'\1-\2', self.__class__.__name__.lower()).lower()
             
         def __str__(self):
             return self._render()
@@ -33,7 +34,7 @@ class Element:
                 
             self.args = args
             self.kwargs = kwargs
-            self.tag_name = self.__class__.__name__.lower()
+            self.tag_name = re.sub(r'([a-z])([A-Z])', r'\1-\2', self.__class__.__name__.lower()).lower()
             
         def __str__(self):
             return self._render()
@@ -97,6 +98,8 @@ class Element:
             css_content = "\n".join(process_styles(self.styles, current_indent=indent))
             indentation = "    " * indent
             return f"{indentation}<style{' ' if len(self.kwargs) > 0 else ''}{' '.join(f'{key}=\"{value}\"' for key, value in self.kwargs.items())}>\n{css_content}\n{indentation}</style>"
+
+
 
 class Html(Element.BlockLevel):
     """
