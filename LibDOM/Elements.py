@@ -49,7 +49,8 @@ class Element:
                     if callable(arg):
                         source_code = inspect.getsource(arg)
                         lines = source_code.splitlines()
-                        result += f"\n{indentation}    {textwrap.dedent("\n".join(lines[1:]))}"
+                        formatted_code = textwrap.dedent("\n".join(lines[1:]))
+                        result += f"\n{indentation}    {formatted_code}"
                     else:
                         result += f"\n{indentation}    {arg}"
                     
