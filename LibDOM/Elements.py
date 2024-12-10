@@ -1,4 +1,5 @@
 import inspect
+import textwrap
 from .Attributes import GlobalAttributes
 
 class Element:
@@ -48,7 +49,7 @@ class Element:
                     if callable(arg):
                         source_code = inspect.getsource(arg)
                         lines = source_code.splitlines()
-                        result += f"\n{indentation}    {"\n".join(lines[1:])}"
+                        result += f"\n{indentation}    {textwrap.dedent("\n".join(lines[1:]))}"
                     else:
                         result += f"\n{indentation}    {arg}"
                     
