@@ -47,7 +47,8 @@ class Element:
                 else:
                     if callable(arg):
                         source_code = inspect.getsource(arg)
-                        result += f"\n{indentation}    {source_code}"
+                        lines = source_code.splitlines()
+                        result += f"\n{indentation}    {"\n".join(lines[1:])}"
                     else:
                         result += f"\n{indentation}    {arg}"
                     

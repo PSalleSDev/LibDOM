@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     readme = fh.read()
 
 setup(name='LibDOM',
-    version='0.0.8',
+    version='0.0.9',
     url='https://github.com/PSalleSDev/LibDOM',
     license='MIT License',
     author='Pedro Salles',
